@@ -4,12 +4,30 @@ from lab1 import *
  # A few test cases.  Add more!!!
 class TestLab1(unittest.TestCase):
 
-    def test_max_list_iter(self):
-        """add description here"""
+    def test_max_list_iter_ValueError(self):
+        # Tests ValueError for list type None
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
 
+    def test_max_list_iter_empty(self):
+        # Tests return type of function on empty list
+        tlist = []
+        self.assertTrue(type(max_list_iter(tlist)), is None)
+    
+    def test_max_list_iter(self):
+        # 
+        self.assertEqual(max_list_iter([1,2,3]), 3)
+      	self.assertEqual(max_list_iter([1,3,2]), 3)
+        self.assertEqual(max_list_iter([3,2,1]), 3)
+       	self.assertEqual(max_list_iter([1,1,3]), 3)
+        self.assertEqual(max_list_iter([1,3,1]), 3)
+       	self.assertEqual(max_list_iter([3,1,1]), 3)
+        self.assertEqual(max_list_iter([3,3,3]), 3)
+       	self.assertAlmostEqual(max_list_iter([1.1,2.1,3.1]), 3.1)
+        self.assertAlmostEqual(max_list_iter([2.1,3.1,1.1]), 3.1)
+       	self.assertAlmostEqual(max_list_iter([3.1,2.1,1.1]), 3.1)
+        
     def test_reverse_rec(self):
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
 

@@ -30,8 +30,8 @@ class TestLab1(unittest.TestCase):
         
     def test_reverse_rec(self):
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
-        self.assertEqual(reverse_rec([-1,1,0]), [0,1-1])
-        self.assertEqual(reverse_rec(1), 1)
+        self.assertEqual(reverse_rec([-1,1,0]), [0,1,-1])
+        self.assertEqual(reverse_rec([1]), [1])
         
     def test_error_reverse_rec(self):
         tlist = None
@@ -43,6 +43,8 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4 )
+
+    
 
 if __name__ == "__main__":
         unittest.main()
